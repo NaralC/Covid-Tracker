@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../constants.dart';
 
-class FactScreen extends StatelessWidget {
-  const FactScreen({Key? key}) : super(key: key);
+class PreventionScreen extends StatelessWidget {
+  const PreventionScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +21,8 @@ class FactScreen extends StatelessWidget {
                 begin: Alignment.topRight,
                 end: Alignment.bottomLeft,
                 colors: [
-                  Color(0xFFFFF176),
-                  Color(0xFFE64A19),
+                  Color(0xFFB9F6CA),
+                  Color(0xFF2E7D32),
                 ],
               ),
               image: DecorationImage(
@@ -61,7 +61,7 @@ class FactScreen extends StatelessWidget {
         ),
       ],
     ));
-    //TODO: Display more facts
+    //TODO: Display covid-19 safety rules
   }
 }
 

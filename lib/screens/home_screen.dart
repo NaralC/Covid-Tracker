@@ -10,6 +10,10 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int infected = 0;
+  int deaths = 0;
+  int recovered = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,17 +75,83 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Spacer(flex: 1),
           Container(
-            padding: EdgeInsets.all(20),
+            margin: EdgeInsets.only(left: 20, right: 20),
+            padding: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
             decoration: BoxDecoration(
-              color: Colors.grey,
+              color: Colors.white,
               borderRadius: BorderRadius.circular(20),
+              boxShadow: [
+                BoxShadow(
+                  offset: Offset(0, 2),
+                  blurRadius: 3,
+                ),
+              ],
             ),
             child: Column(
-              children: const [
-                Text("Total Cases"),
-                Text("Active Cases"),
-                Text("Deaths"),
-                Text("Recovered"),
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      height: 20,
+                      width: 20,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: kInfectedColor,
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    Text(
+                      "Infected: ",
+                      style: kHeadingTextStyle,
+                    ),
+                    Spacer(),
+                    Text(
+                      "$infected",
+                    )
+                  ],
+                ),
+                Row(
+                  children: [
+                    Container(
+                      height: 20,
+                      width: 20,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: kDeathColor,
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    Text(
+                      "Deaths: ",
+                      style: kHeadingTextStyle,
+                    ),
+                    Spacer(),
+                    Text(
+                      "$infected",
+                    )
+                  ],
+                ),
+                Row(
+                  children: [
+                    Container(
+                      height: 20,
+                      width: 20,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: kRecovercolor,
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    Text(
+                      "Infected: ",
+                      style: kHeadingTextStyle,
+                    ),
+                    Spacer(),
+                    Text(
+                      "$infected",
+                    )
+                  ],
+                ),
               ],
             ),
           ),
@@ -90,7 +160,7 @@ class _HomeScreenState extends State<HomeScreen> {
             onPressed: null,
             child: Text("Refresh"),
           ),
-          SizedBox(height: 20),
+          Spacer(flex: 1),
         ],
       ),
     );

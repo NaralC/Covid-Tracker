@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'explore_screen.dart';
+import 'prevention_screen.dart';
 import 'fact_screen.dart';
 import 'home_screen.dart';
 
@@ -15,7 +15,7 @@ class _BaseScreenState extends State<BaseScreen> {
 
   final screens = [
     const HomeScreen(),
-    const ExploreScreen(),
+    const PreventionScreen(),
     const FactScreen(),
   ];
 
@@ -45,7 +45,7 @@ class _BaseScreenState extends State<BaseScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.add_moderator),
-            label: "Explore",
+            label: "Prevention",
             backgroundColor: Colors.green,
           ),
           BottomNavigationBarItem(
