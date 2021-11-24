@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   begin: Alignment.topRight,
                   end: Alignment.bottomLeft,
                   colors: [
-                    Color(0xFF3383CD),
+                    Color(0xFF84FFFF),
                     Color(0xFF11249F),
                   ],
                 ),
@@ -143,7 +143,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     SizedBox(width: 10),
                     Text(
-                      "Infected: ",
+                      "Recovered: ",
                       style: kHeadingTextStyle,
                     ),
                     Spacer(),

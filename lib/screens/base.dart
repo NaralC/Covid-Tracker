@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'prevention_screen.dart';
-import 'fact_screen.dart';
+import 'extra_screen.dart';
 import 'home_screen.dart';
 
 class BaseScreen extends StatefulWidget {
@@ -16,7 +16,7 @@ class _BaseScreenState extends State<BaseScreen> {
   final screens = [
     const HomeScreen(),
     const PreventionScreen(),
-    const FactScreen(),
+    const ExtraScreen(),
   ];
 
   @override
@@ -50,7 +50,7 @@ class _BaseScreenState extends State<BaseScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite),
-            label: "Facts",
+            label: "Extra",
             backgroundColor: Colors.red,
           ),
         ],

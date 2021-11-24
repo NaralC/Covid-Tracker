@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../constants.dart';
 
-class PreventionScreen extends StatelessWidget {
-  const PreventionScreen({Key? key}) : super(key: key);
+class ExtraScreen extends StatelessWidget {
+  const ExtraScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +21,8 @@ class PreventionScreen extends StatelessWidget {
                 begin: Alignment.topRight,
                 end: Alignment.bottomLeft,
                 colors: [
-                  Color(0xFFCCFF90),
-                  Color(0xFF2E7D32),
+                  Color(0xFFFFF176),
+                  Color(0xFFE64A19),
                 ],
               ),
               image: DecorationImage(
@@ -59,7 +59,7 @@ class PreventionScreen extends StatelessWidget {
             ),
           ),
         ),
-        Text("Prevention", style: kTitleTextstyle),
+        Text("Miscellaneous", style: kTitleTextstyle),
         Column(
           children: [
             Container(
@@ -77,7 +77,7 @@ class PreventionScreen extends StatelessWidget {
               child: Row(
                 children: [
                   Image.asset(
-                    "assets/icons/wash_hands.png",
+                    "assets/icons/who_logo.png",
                     height: 75,
                     width: 75,
                   ),
@@ -88,16 +88,15 @@ class PreventionScreen extends StatelessWidget {
                         style: kSubTextStyle.copyWith(fontSize: 13),
                         children: [
                           TextSpan(
-                            text: "Wash Your Hands!\n",
+                            text: "Learn More About Vaccines!\n",
                             style: TextStyle(
                                 fontWeight: FontWeight.w700,
                                 color: Colors.black87,
                                 fontSize: 18),
                           ),
                           TextSpan(
-                              text: "Washing hands can keep you healthy and \n"
-                                  "prevent the spread of respiratory and diarrheal \ninfections "
-                                  "from one person to the next.")
+                              text: "See a list of frequently asked questions\n"
+                                  "comprehensively gathered in one place.")
                         ],
                       ),
                     ),
@@ -120,7 +119,7 @@ class PreventionScreen extends StatelessWidget {
               child: Row(
                 children: [
                   Image.asset(
-                    "assets/icons/wear_mask.png",
+                    "assets/icons/bangkok_hospital.png",
                     height: 75,
                     width: 75,
                   ),
@@ -132,7 +131,7 @@ class PreventionScreen extends StatelessWidget {
                         style: kSubTextStyle.copyWith(fontSize: 13),
                         children: [
                           TextSpan(
-                            text: "Wear Your Mask!\n",
+                            text: "Learn More About Covid-19!\n",
                             style: TextStyle(
                                 fontWeight: FontWeight.w700,
                                 color: Colors.black87,
@@ -140,9 +139,9 @@ class PreventionScreen extends StatelessWidget {
                           ),
                           TextSpan(
                               text:
-                                  "Masks should be used as part of a strategy \n"
-                                  "of measures to suppress transmission and \n"
-                                  "save lives; ")
+                                  "Catch up with the current global situation \n"
+                                  "and how you can make valuable contributions \n"
+                                  "to the world. ")
                         ],
                       ),
                     ),
@@ -154,7 +153,7 @@ class PreventionScreen extends StatelessWidget {
         ),
       ],
     ));
-    //TODO: Make the cards clickable, and link them to articles
+    //TODO: Display more facts
   }
 }
 
