@@ -1,9 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../constants.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class PreventionScreen extends StatelessWidget {
   const PreventionScreen({Key? key}) : super(key: key);
+
+  final washHandsURL =
+      'https://www.cdc.gov/handwashing/when-how-handwashing.html';
+  final wearMaskURL =
+      'https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/when-and-how-to-use-masks';
+
+  openURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,99 +74,105 @@ class PreventionScreen extends StatelessWidget {
         Text("Prevention", style: kTitleTextstyle),
         Column(
           children: [
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-              margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: [
-                    BoxShadow(
-                      offset: Offset(0, 2),
-                      blurRadius: 3,
+            GestureDetector(
+              onTap: () => {openURL(washHandsURL)},
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        offset: Offset(0, 2),
+                        blurRadius: 3,
+                      ),
+                    ]),
+                child: Row(
+                  children: [
+                    Image.asset(
+                      "assets/icons/wash_hands.png",
+                      height: 75,
+                      width: 75,
                     ),
-                  ]),
-              child: Row(
-                children: [
-                  Image.asset(
-                    "assets/icons/wash_hands.png",
-                    height: 75,
-                    width: 75,
-                  ),
-                  SizedBox(width: 20),
-                  Container(
-                    child: RichText(
-                      text: TextSpan(
-                        style: kSubTextStyle.copyWith(fontSize: 13),
-                        children: [
-                          TextSpan(
-                            text: "Wash Your Hands!\n",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w700,
-                                color: Colors.black87,
-                                fontSize: 18),
-                          ),
-                          TextSpan(
-                              text: "Washing hands can keep you healthy and \n"
-                                  "prevent the spread of respiratory and diarrheal \ninfections "
-                                  "from one person to the next.")
-                        ],
+                    SizedBox(width: 20),
+                    Container(
+                      child: RichText(
+                        text: TextSpan(
+                          style: kSubTextStyle.copyWith(fontSize: 13),
+                          children: [
+                            TextSpan(
+                              text: "Wash Your Hands!\n",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.black87,
+                                  fontSize: 18),
+                            ),
+                            TextSpan(
+                                text:
+                                    "Washing hands can keep you healthy and \n"
+                                    "prevent the spread of respiratory and diarrheal \ninfections "
+                                    "from one person to the next.")
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-              margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: [
-                    BoxShadow(
-                      offset: Offset(0, 2),
-                      blurRadius: 3,
+            GestureDetector(
+              onTap: () => {openURL(wearMaskURL)},
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        offset: Offset(0, 2),
+                        blurRadius: 3,
+                      ),
+                    ]),
+                child: Row(
+                  children: [
+                    Image.asset(
+                      "assets/icons/wear_mask.png",
+                      height: 75,
+                      width: 75,
                     ),
-                  ]),
-              child: Row(
-                children: [
-                  Image.asset(
-                    "assets/icons/wear_mask.png",
-                    height: 75,
-                    width: 75,
-                  ),
-                  SizedBox(width: 20),
-                  Container(
-                    child: RichText(
-                      textAlign: TextAlign.start,
-                      text: TextSpan(
-                        style: kSubTextStyle.copyWith(fontSize: 13),
-                        children: [
-                          TextSpan(
-                            text: "Wear Your Mask!\n",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w700,
-                                color: Colors.black87,
-                                fontSize: 18),
-                          ),
-                          TextSpan(
-                              text:
-                                  "Masks should be used as part of a strategy \n"
-                                  "of measures to suppress transmission and \n"
-                                  "save lives; ")
-                        ],
+                    SizedBox(width: 20),
+                    Container(
+                      child: RichText(
+                        textAlign: TextAlign.start,
+                        text: TextSpan(
+                          style: kSubTextStyle.copyWith(fontSize: 13),
+                          children: [
+                            TextSpan(
+                              text: "Wear Your Mask!\n",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.black87,
+                                  fontSize: 18),
+                            ),
+                            TextSpan(
+                                text:
+                                    "Masks should be used as part of a strategy \n"
+                                    "of measures to suppress transmission and \n"
+                                    "save lives; ")
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             )
           ],
         ),
       ],
     ));
-    //TODO: Make the cards clickable, and link them to articles
   }
 }
 

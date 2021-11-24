@@ -1,9 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../constants.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ExtraScreen extends StatelessWidget {
   const ExtraScreen({Key? key}) : super(key: key);
+
+  final String whoURL =
+      'https://www.who.int/emergencies/diseases/novel-coronavirus-2019/question-and-answers-hub';
+  final String hospitalURL =
+      'https://www.bangkokhearthospital.com/en/content/prevention-of-covid-19-disease';
+
+  openURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,98 +74,104 @@ class ExtraScreen extends StatelessWidget {
         Text("Miscellaneous", style: kTitleTextstyle),
         Column(
           children: [
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-              margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: [
-                    BoxShadow(
-                      offset: Offset(0, 2),
-                      blurRadius: 3,
+            GestureDetector(
+              onTap: () => {openURL(whoURL)},
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        offset: Offset(0, 2),
+                        blurRadius: 3,
+                      ),
+                    ]),
+                child: Row(
+                  children: [
+                    Image.asset(
+                      "assets/icons/who_logo.png",
+                      height: 75,
+                      width: 75,
                     ),
-                  ]),
-              child: Row(
-                children: [
-                  Image.asset(
-                    "assets/icons/who_logo.png",
-                    height: 75,
-                    width: 75,
-                  ),
-                  SizedBox(width: 20),
-                  Container(
-                    child: RichText(
-                      text: TextSpan(
-                        style: kSubTextStyle.copyWith(fontSize: 13),
-                        children: [
-                          TextSpan(
-                            text: "Learn More About Vaccines!\n",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w700,
-                                color: Colors.black87,
-                                fontSize: 18),
-                          ),
-                          TextSpan(
-                              text: "See a list of frequently asked questions\n"
-                                  "comprehensively gathered in one place.")
-                        ],
+                    SizedBox(width: 20),
+                    Container(
+                      child: RichText(
+                        text: TextSpan(
+                          style: kSubTextStyle.copyWith(fontSize: 13),
+                          children: [
+                            TextSpan(
+                              text: "Learn More About Vaccines!\n",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.black87,
+                                  fontSize: 18),
+                            ),
+                            TextSpan(
+                                text:
+                                    "See a list of frequently asked questions\n"
+                                    "comprehensively gathered in one place.")
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-              margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: [
-                    BoxShadow(
-                      offset: Offset(0, 2),
-                      blurRadius: 3,
+            GestureDetector(
+              onTap: () => {openURL(hospitalURL)},
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        offset: Offset(0, 2),
+                        blurRadius: 3,
+                      ),
+                    ]),
+                child: Row(
+                  children: [
+                    Image.asset(
+                      "assets/icons/bangkok_hospital.png",
+                      height: 75,
+                      width: 75,
                     ),
-                  ]),
-              child: Row(
-                children: [
-                  Image.asset(
-                    "assets/icons/bangkok_hospital.png",
-                    height: 75,
-                    width: 75,
-                  ),
-                  SizedBox(width: 20),
-                  Container(
-                    child: RichText(
-                      textAlign: TextAlign.start,
-                      text: TextSpan(
-                        style: kSubTextStyle.copyWith(fontSize: 13),
-                        children: [
-                          TextSpan(
-                            text: "Learn More About Covid-19!\n",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w700,
-                                color: Colors.black87,
-                                fontSize: 18),
-                          ),
-                          TextSpan(
-                              text:
-                                  "Catch up with the current global situation \n"
-                                  "and how you can make valuable contributions \n"
-                                  "to the world. ")
-                        ],
+                    SizedBox(width: 20),
+                    Container(
+                      child: RichText(
+                        textAlign: TextAlign.start,
+                        text: TextSpan(
+                          style: kSubTextStyle.copyWith(fontSize: 13),
+                          children: [
+                            TextSpan(
+                              text: "Learn More About Covid-19!\n",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.black87,
+                                  fontSize: 18),
+                            ),
+                            TextSpan(
+                                text:
+                                    "Catch up with the current global situation \n"
+                                    "and how you can make valuable contributions \n"
+                                    "to the world. ")
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             )
           ],
         ),
       ],
     ));
-    //TODO: Display more facts
   }
 }
 
