@@ -1,4 +1,4 @@
-import 'package:covid_tracker_app/constants.dart';
+import 'package:covid_tracker_app/utility/constants.dart';
 import 'package:flutter/material.dart';
 import 'screens/base.dart';
 

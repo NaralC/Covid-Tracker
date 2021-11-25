@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../constants.dart';
+import '../utility/constants.dart';
+import '../utility/fetch_data.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -10,9 +11,36 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int infected = 0;
-  int deaths = 0;
-  int recovered = 0;
+  String? infected = '0';
+  String? deaths = '0';
+  String? recovered = '0';
+  var numberOfCases = [];
+  bool isWaiting = false;
+
+  void getData() async {
+    isWaiting = true;
+
+    try {
+      var covidData = await DataFromApi().fetchData();
+      numberOfCases = covidData;
+
+      setState(() {
+        infected = numberOfCases[0];
+        deaths = numberOfCases[1];
+        recovered = numberOfCases[2];
+      });
+
+      isWaiting = false;
+    } catch (exception) {
+      throw "Failed to retrieve data";
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getData();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Text(
             "Live Update",
             textAlign: TextAlign.left,
-            style: kTitleTextstyle,
+            style: kTitleTextStyle,
           ),
           Spacer(flex: 1),
           Container(
@@ -106,7 +134,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     Spacer(),
                     Text(
-                      "$infected",
+                      isWaiting ? 'Fetching Data...' : infected!,
+                      style: kNumberTextStyle,
                     )
                   ],
                 ),
@@ -127,7 +156,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     Spacer(),
                     Text(
-                      "$infected",
+                      isWaiting ? 'Fetching Data...' : deaths!,
+                      style: kNumberTextStyle,
                     )
                   ],
                 ),
@@ -148,7 +178,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     Spacer(),
                     Text(
-                      "$infected",
+                      isWaiting ? 'Fetching Data...' : recovered!,
+                      style: kNumberTextStyle,
                     )
                   ],
                 ),
@@ -157,8 +188,12 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Spacer(flex: 1),
           ElevatedButton(
-            onPressed: null,
-            child: Text("Refresh"),
+            style: ElevatedButton.styleFrom(
+              primary: isWaiting ? Colors.grey : Colors.blue,
+              onPrimary: Colors.white,
+            ),
+            onPressed: () => getData(),
+            child: Icon(Icons.refresh),
           ),
           Spacer(flex: 1),
         ],

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../constants.dart';
+import '../utility/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class PreventionScreen extends StatelessWidget {
@@ -71,7 +71,7 @@ class PreventionScreen extends StatelessWidget {
             ),
           ),
         ),
-        Text("Prevention", style: kTitleTextstyle),
+        Text("Prevention", style: kTitleTextStyle),
         Column(
           children: [
             GestureDetector(

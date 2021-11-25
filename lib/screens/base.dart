@@ -22,11 +22,11 @@ class _BaseScreenState extends State<BaseScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // body: IndexedStack(
-      //   children: screens,
-      //   index: currentIndex,
-      // ),
-      body: screens[currentIndex],
+      body: IndexedStack(
+        children: screens,
+        index: currentIndex,
+      ),
+      // body: screens[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         showUnselectedLabels: true,
         unselectedItemColor: Colors.white.withAlpha(50),

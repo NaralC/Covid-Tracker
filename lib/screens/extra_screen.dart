@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../constants.dart';
+import '../utility/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ExtraScreen extends StatelessWidget {
@@ -71,7 +71,7 @@ class ExtraScreen extends StatelessWidget {
             ),
           ),
         ),
-        Text("Miscellaneous", style: kTitleTextstyle),
+        Text("Miscellaneous", style: kTitleTextStyle),
         Column(
           children: [
             GestureDetector(
@@ -102,7 +102,7 @@ class ExtraScreen extends StatelessWidget {
                           style: kSubTextStyle.copyWith(fontSize: 13),
                           children: [
                             TextSpan(
-                              text: "Learn More About Vaccines!\n",
+                              text: "Learn More From WHO!\n",
                               style: TextStyle(
                                   fontWeight: FontWeight.w700,
                                   color: Colors.black87,
@@ -149,7 +149,7 @@ class ExtraScreen extends StatelessWidget {
                           style: kSubTextStyle.copyWith(fontSize: 13),
                           children: [
                             TextSpan(
-                              text: "Learn More About Covid-19!\n",
+                              text: "Learn More Safety Measures!\n",
                               style: TextStyle(
                                   fontWeight: FontWeight.w700,
                                   color: Colors.black87,
