@@ -4,6 +4,7 @@ Track live Covid-19 case numbers, and learn how to stay protected from the pande
 
 ## Preview
 ![Alt Text](https://i.imgur.com/oaleBxx.gif)
+![Alt Text](https://i.imgur.com/xfumROA.gif)
 
 ## Description
 
