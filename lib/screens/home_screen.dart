@@ -19,7 +19,10 @@ class _HomeScreenState extends State<HomeScreen> {
   bool isWaiting = false;
 
   void getData() async {
-    isWaiting = true;
+    setState(() {
+      isWaiting = true;
+    });
+
     try {
       var covidData = await DataFromApi().fetchData();
       numberOfCases = covidData;
