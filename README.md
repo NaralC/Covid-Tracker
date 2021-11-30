@@ -17,6 +17,6 @@ Third Party Dependencies:\
 ‣ intl: number formatting
 
 Websites & Data Providers:\
-‣ https://www.bangkokhearthospital.com/\
-‣ https://www.who.int/\
+‣ https://www.bangkokhearthospital.com/ \
+‣ https://www.who.int/ \
 ‣ https://quarantine.country/coronavirus/api/
