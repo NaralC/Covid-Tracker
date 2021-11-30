@@ -14,9 +14,9 @@ Third Party Dependencies:\
 ‣ cupertino_icons: extra icons\
 ‣ url_launcher: redirecting the user to a webpage\
 ‣ http: making API requests\
-‣ intl: number formatting\
+‣ intl: number formatting
 
-Websites & Data Providers:
-‣ https://www.bangkokhearthospital.com/
-‣ https://www.who.int/
+Websites & Data Providers:\
+‣ https://www.bangkokhearthospital.com/\
+‣ https://www.who.int/\
 ‣ https://quarantine.country/coronavirus/api/
