@@ -11,11 +11,11 @@ Track live Covid-19 case numbers, and learn how to stay protected from the pande
 This project was created to help individuals catch up to the current situation concerning Covid-19. 
  
 Third Party Dependencies:\
-‣ flutter_svg: displaying SVG files\
-‣ cupertino_icons: extra icons\
-‣ url_launcher: redirecting the user to a webpage\
-‣ http: making API requests\
-‣ intl: number formatting
+‣ flutter_svg: \
+‣ cupertino_icons: \
+‣ url_launcher: \
+‣ http: \
+‣ intl: 
 
 Websites & Data Providers:\
 ‣ https://www.bangkokhearthospital.com/ \
