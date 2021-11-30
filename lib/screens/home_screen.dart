@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../utility/constants.dart';
 import '../utility/fetch_data.dart';
+import '../utility/my_clipper.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -19,7 +20,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void getData() async {
     isWaiting = true;
-
     try {
       var covidData = await DataFromApi().fetchData();
       numberOfCases = covidData;
@@ -199,23 +199,5 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
     );
-  }
-}
-
-class MyClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    var path = Path();
-    path.lineTo(0, size.height - 80);
-    path.quadraticBezierTo(
-        size.width / 2, size.height, size.width, size.height - 80);
-    path.lineTo(size.width, 0);
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
-    return false;
   }
 }
