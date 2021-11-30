@@ -3,7 +3,7 @@
 Track live Covid-19 case numbers, and learn how to stay protected from the pandemic! 
 
 ## Preview
-![Alt Text](https://im2.ezgif.com/tmp/ezgif-2-6bbad2923fea.gif)
+![Alt Text](https://imgur.com/oaleBxx)
 
 ## Description
 
