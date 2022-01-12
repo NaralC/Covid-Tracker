@@ -100,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           Text(
-            "Live Update",
+            "Daily Live Update",
             textAlign: TextAlign.left,
             style: kTitleTextStyle,
           ),

@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 
-const api = 'https://api.quarantine.country/api/v1/summary/latest';
+const api = 'https://covid19.ddc.moph.go.th/api/Cases/today-cases-all';
 
 class DataFromApi {
   Future fetchData() async {
@@ -14,11 +14,11 @@ class DataFromApi {
 
     if (response.statusCode == 200) {
       var decodedData = jsonDecode(response.body);
-      var dataPath = decodedData['data']['summary'];
+      var dataPath = decodedData;
 
-      numberOfCases[0] = formatter.format(dataPath['active_cases']);
-      numberOfCases[1] = formatter.format(dataPath['deaths']);
-      numberOfCases[2] = formatter.format(dataPath['recovered']);
+      numberOfCases[0] = formatter.format(dataPath[0]['total_case']);
+      numberOfCases[1] = formatter.format(dataPath[0]['total_death']);
+      numberOfCases[2] = formatter.format(dataPath[0]['total_recovered']);
     } else {
       throw (response.statusCode);
     }
