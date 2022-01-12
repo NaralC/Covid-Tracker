@@ -20,4 +20,5 @@ Third Party Dependencies:\
 Websites & Data Providers:\
 ‣ https://www.bangkokhearthospital.com/ \
 ‣ https://www.who.int/ \
-‣ https://quarantine.country/coronavirus/api/
+‣ https://covid19.ddc.moph.go.th/ \
+‣ https://quarantine.country/coronavirus/api/ (Deprecated)
